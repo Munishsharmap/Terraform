@@ -1,0 +1,66 @@
+Environment Variables::
+=======================
+echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+source ~/.bash_profile
+
+============================================
+AKIARVBUV5T7OS24M4DU
+9ijHOJOx9UirxO2E/jx4SVPvfciTRYfsOpndKrsK
+===========================================
+
+EC2:
+========
+provider "aws" {
+  access_key = "AKIARVBUV5T7OS24M4DU"
+  secret_key = "9ijHOJOx9UirxO2E/jx4SVPvfciTRYfsOpndKrsK"
+  region     = "us-east-2"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0f599bbc07afc299a"
+  instance_type = "t2.micro"
+   tags = {
+    Name        = "Test-Server1"
+      }
+}
+
+====================================================================
+
+S3:
+==========================================================
+provider "aws" {
+  access_key = "AKIARVBUV5T7OS24M4DU"
+  secret_key = "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"
+
+  region     = "us-east-2"
+}
+resource "aws_s3_bucket" "bucket" {
+  bucket = "devopsbatch79"
+
+  tags = {
+    Name        = "devopsbatch79"
+    Environment = "test"
+  }
+}
+
+
+
+
+VPC:
+========================================================
+provider "aws" {
+  access_key = "AKIARVBUV5T7JJHW2V5T"
+  secret_key = "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"
+
+  region     = "us-east-2"
+}
+resource "aws_vpc" "MYVPC" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "dedicated"
+
+  tags = {
+    Name = "MYVPC"
+  }
+}
+
+========================================================
