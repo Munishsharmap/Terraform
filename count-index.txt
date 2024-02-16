@@ -1,0 +1,21 @@
+resource "aws_instance" "example" {
+  count = 3
+
+"Test-Server${count.index+1}"
+
+
+
+terraform {
+  backend "s3" {
+    bucket = "manu_2024"
+    key = "app/dev/terraform.tfstate"
+    region = "us-east-2"
+
+
+
+
+variable "ami" {
+    type = string
+    default = "ami-07b36ea9852e986ad"
+  
+}
